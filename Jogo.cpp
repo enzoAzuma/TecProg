@@ -4,10 +4,9 @@ Jogo::Jogo()
 : janela(sf::VideoMode({800, 600}), "Jogo")
 {
     pJog1 = new Jogador();
-    pInim1 = new Inimigo();
-
     pJog1->setJanela(&janela);
-    pInim1->setJanela(&janela);
+    fase1 = new Fase(pJog1, &janela);
+    LEs = fase1->getListaEntidades();
     Executar();
 }
 
@@ -26,8 +25,11 @@ void Jogo::Executar()
         
         pJog1->Mover();
         janela.clear();
-        pJog1->Desenhar();
-        pInim1->Desenhar();
+        for(int i = 0; i < LEs->getLEs()->getTam(); i++)
+        {
+            Entidade* aux = LEs->getLEs()->getItem(i);
+            aux->Desenhar();
+        }
         janela.display();
     }
 }

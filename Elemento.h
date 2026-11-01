@@ -13,3 +13,13 @@ template <class TE> class Elemento
     void setItem(TE* i) {item = i;}
     TE* getItem() {return item;}
 };
+
+template<class TE> inline Elemento<TE>::Elemento()
+: pProx(nullptr), item(nullptr)
+{
+}
+
+template<class TE> inline Elemento<TE>::~Elemento()
+{
+    delete item;
+}
