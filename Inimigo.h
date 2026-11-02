@@ -1,7 +1,8 @@
 #pragma once
 #include "Entidade.h"
+#include "Figura.h"
 
-class Inimigo : public Entidade
+class Inimigo : public Entidades::Entidade
 {
 private:
     /* data */

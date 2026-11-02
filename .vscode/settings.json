@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        "**/*.o": true,
+        "**/Makefile": true,
+        "**/jogo": true,
+        "**/.DS_Store": true,
+        "**/*.dSYM": true
+    }
+}

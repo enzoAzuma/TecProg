@@ -5,6 +5,7 @@
 #include "ListaEntidade.h"
 #include "Fase.h"
 #include "Gerenciador_Grafico.h"
+#include "Ente.h"
 
 class Jogo
 {
@@ -12,8 +13,8 @@ private:
     Gerenciador_Grafico* pGrafico;
 
     Jogador* pJog1;
-    ListaEntidade* LEs;
-    Fase* fase1;
+    Listas::ListaEntidade* LEs;
+    Fases::Fase* fase1;
 public:
     Jogo();
     ~Jogo();

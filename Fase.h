@@ -4,10 +4,12 @@
 #include "Inimigo.h"
 #include <SFML/Graphics.hpp>
 
+namespace Fases
+{
 class Fase
 {
 protected:
-    ListaEntidade* lista_ents;
+    Listas::ListaEntidade* lista_ents;
     Jogador* pJog1;
     Inimigo* pInim1;
     sf::RenderWindow* janela;
@@ -15,6 +17,6 @@ public:
     Fase(Jogador* j1, sf::RenderWindow* j);
     ~Fase();
     void InicializaElementos();
-    ListaEntidade* getListaEntidades() {return lista_ents;}
+    Listas::ListaEntidade* getListaEntidades() {return lista_ents;}
 };
-
+}

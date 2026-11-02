@@ -4,12 +4,14 @@ Jogo::Jogo()
 : pGrafico(Gerenciador_Grafico::getGerenciadorGrafico())
 {
     pJog1 = new Jogador();
+    pJog1->getFigura();
     pJog1->setJanela(pGrafico->getJanela());
-    fase1 = new Fase(pJog1, pGrafico->getJanela());
+    fase1 = new Fases::Fase(pJog1, pGrafico->getJanela());
     LEs = fase1->getListaEntidades();
+
+    Ente::setGG(pGrafico);
     Executar();
 }
-
 Jogo::~Jogo()
 {
 }
@@ -26,10 +28,10 @@ void Jogo::Executar()
         
         pJog1->Mover();
         pGrafico->limpaJanela();
-        for(int i = 0; i < LEs->getLEs()->getTam(); i++)
+        for(Listas::Elemento<Entidades::Entidade>* aux = LEs->getLEs()->getPrimeiro(); aux != nullptr ; aux = aux->getProx())
         {
-            Entidade* aux = LEs->getLEs()->getItem(i);
-            aux->Desenhar();
+            Entidades::Entidade* e = aux->getInfo();
+            e->Desenhar();
         }
         pGrafico->mostraElementos();
     }

@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+class Ente;
+#include "Figura.h"
 
 class Gerenciador_Grafico
 {
@@ -16,4 +18,5 @@ public:
     void fecharJanela() { janela->close(); }
     void limpaJanela() { janela->clear(); }
     void mostraElementos() { janela->display(); }
+    void desenharEnte(Ente* pE);
 };

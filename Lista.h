@@ -1,23 +1,25 @@
 #pragma once
 #include "Elemento.h"
 
+namespace Listas
+{
 template <class TL> class Lista
 {
 private:
-    Elemento<TL>* pPrim;
+    Elemento<TL>* pPrimeiro;
     Elemento<TL>* pUltimo;
-    int tam;
 public:
     Lista();
     ~Lista();
-    int getTam() {return tam;}
-    TL* getItem(int pos);
-    void incluir(TL* item);
-    void remover(TL* item);
+    TL* getInfo(int pos);
+    Elemento<TL>* getPrimeiro() {return pPrimeiro;}
+    void incluir(TL* pinfo);
+    void remover(TL* pinfo);
+    void Limpar();
 };
 
 template <class TL> inline Lista<TL>::Lista()
-: pPrim(nullptr), pUltimo(nullptr), tam(0)
+: pPrimeiro(nullptr), pUltimo(nullptr)
 {
 }
 
@@ -25,12 +27,12 @@ template <class TL> inline Lista<TL>::~Lista()
 {
 }
 
-template<class TL> TL* Lista<TL>::getItem(int pos)
+template<class TL> TL* Lista<TL>::getInfo(int pos)
 {
      if (pos < 0)
         return nullptr;
     int i = 0;
-    for (Elemento<TL>* aux = pPrim; aux != nullptr; aux = aux->getPProx())
+    for (Elemento<TL>* aux = pPrimeiro; aux != nullptr; aux = aux->getPProx())
     {
         if (i == pos)
             return aux->getItem();   
@@ -39,37 +41,36 @@ template<class TL> TL* Lista<TL>::getItem(int pos)
     return nullptr;
 }
 
-template<class TL> void Lista<TL>::incluir(TL* item)
+template<class TL> void Lista<TL>::incluir(TL* pinfo)
 {
-    if(pPrim == nullptr)
+    if(pPrimeiro == nullptr)
     {
-        pPrim = new Elemento<TL>;
-        pPrim->setItem(item);
-        pUltimo = pPrim;
+        pPrimeiro = new Elemento<TL>;
+        pPrimeiro->incluir(pinfo);
+        pUltimo = pPrimeiro;
     }
     else
     {
         Elemento<TL>* aux = new Elemento<TL>;
-        aux->setItem(item);
-        pUltimo->setPProx(aux);
+        aux->incluir(pinfo);
+        pUltimo->setProx(aux);
         pUltimo = aux;
     }  
-    tam++;
 }
 
-template<class TL> void Lista<TL>::remover(TL* item)
+/* template<class TL> void Lista<TL>::remover(TL* pinfo)
 {
-    Elemento<TL>* aux = pPrim;
+    Elemento<TL>* aux = pPrimeiro;
     Elemento<TL>* auxAnte = nullptr;
 
-    while (aux->getItem != item)
+    while (aux->getItem != pinfo)
     {
         auxAnte = aux;
         aux = aux->getPProx();
     }
-    if(aux == pPrim)
+    if(aux == pPrimeiro)
     {
-        pPrim = aux->getPProx();
+        pPrimeiro = aux->getPProx();
     }
     else if(aux == pUltimo)
     {
@@ -81,5 +82,19 @@ template<class TL> void Lista<TL>::remover(TL* item)
         auxAnte->setPProx(aux->getPProx());
     }
     delete aux;
-    tam--;
+} */
+
+template<class TL> void Lista<TL>::Limpar()
+{
+    Elemento<TL>* aux = pPrimeiro;
+
+    while (aux != nullptr)
+    {
+        Elemento<TL>* auxProx = aux->getProx();
+        delete aux;
+        aux = auxProx;
+    }
+    pPrimeiro = nullptr;
+    pUltimo = nullptr;    
+}
 }

@@ -2,12 +2,15 @@
 #include "Lista.h"
 #include "Entidade.h"
 
+namespace Listas
+{
 class ListaEntidade
 {
 private:
-    Lista<Entidade> LEs;
+    Lista<Entidades::Entidade> LEs;
 public:
     ListaEntidade();
     ~ListaEntidade();
-    Lista<Entidade>* getLEs() { return &LEs; }
+    Lista<Entidades::Entidade>* getLEs() { return &LEs; }
 };
+}

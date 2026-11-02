@@ -1,4 +1,6 @@
 #include "Gerenciador_Grafico.h"
+#include "Ente.h"
+#include "Figura.h"
 
 Gerenciador_Grafico* Gerenciador_Grafico::pGrafico = nullptr;
 
@@ -18,4 +20,10 @@ Gerenciador_Grafico* Gerenciador_Grafico::getGerenciadorGrafico()
     if (pGrafico == nullptr)
         pGrafico = new Gerenciador_Grafico();
     return pGrafico;
+}
+
+void Gerenciador_Grafico::desenharEnte(Ente* pE)
+{
+    if(pE && pE->getFigura())
+        janela->draw(pE->getFigura()->getDesenho());
 }

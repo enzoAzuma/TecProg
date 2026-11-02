@@ -2,8 +2,9 @@
 
 Inimigo::Inimigo()
 {
-    corpo.setFillColor(sf::Color::Red);
-    corpo.setPosition(sf::Vector2f(400.f, 400.f));
+    setFigura(new Figura(50.f, 80.f));
+    pFig->setCor(sf::Color::Red);
+    pFig->setPosicao(400.f, 400.f);
 }
 
 Inimigo::~Inimigo()

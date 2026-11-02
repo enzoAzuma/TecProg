@@ -1,25 +1,28 @@
 #pragma once
 
+namespace Listas
+{
 template <class TE> class Elemento
 {
     private:
-        Elemento* pProx;
-        TE* item;
+        Elemento<TE>* pProx;
+        TE* pInfo;
     public:
     Elemento();
     ~Elemento();
-    void setPProx(Elemento<TE>* p) {pProx = p;}
-    Elemento<TE>* getPProx() {return pProx;}
-    void setItem(TE* i) {item = i;}
-    TE* getItem() {return item;}
+    void incluir(TE* p) {pInfo = p;}
+    void setProx(Elemento<TE>* pE) {pProx = pE;}
+    Elemento<TE>* getProx() {return pProx;}
+    TE* getInfo() {return pInfo;}
 };
 
 template<class TE> inline Elemento<TE>::Elemento()
-: pProx(nullptr), item(nullptr)
+: pProx(nullptr), pInfo(nullptr)
 {
 }
 
 template<class TE> inline Elemento<TE>::~Elemento()
 {
-    delete item;
+    delete pInfo;
+}
 }
