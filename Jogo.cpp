@@ -1,11 +1,11 @@
 #include "Jogo.h"
 
 Jogo::Jogo()
-: janela(sf::VideoMode({800, 600}), "Jogo")
+: pGrafico(Gerenciador_Grafico::getGerenciadorGrafico())
 {
     pJog1 = new Jogador();
-    pJog1->setJanela(&janela);
-    fase1 = new Fase(pJog1, &janela);
+    pJog1->setJanela(pGrafico->getJanela());
+    fase1 = new Fase(pJog1, pGrafico->getJanela());
     LEs = fase1->getListaEntidades();
     Executar();
 }
@@ -16,20 +16,21 @@ Jogo::~Jogo()
 
 void Jogo::Executar()
 {
-    while(janela.isOpen()) 
+    while(pGrafico->verificarJanelaAberta()) 
     {
-        while (const std::optional event = janela.pollEvent()) {
-            if (event->is<sf::Event::Closed>())
-                janela.close();
-        }
+    while (const std::optional evento = pGrafico->getJanela()->pollEvent())
+    {
+        if (evento->is<sf::Event::Closed>())
+            pGrafico->fecharJanela();
+    }
         
         pJog1->Mover();
-        janela.clear();
+        pGrafico->limpaJanela();
         for(int i = 0; i < LEs->getLEs()->getTam(); i++)
         {
             Entidade* aux = LEs->getLEs()->getItem(i);
             aux->Desenhar();
         }
-        janela.display();
+        pGrafico->mostraElementos();
     }
 }
