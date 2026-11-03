@@ -1,22 +1,27 @@
 #pragma once
 #include "ListaEntidade.h"
 #include "Jogador.h"
-#include "Inimigo.h"
+#include "Inim_Facil.h"
+#include "Ente.h"
+#include "Figura.h"
+#include "Gerenciador_Colisoes.h"
 #include <SFML/Graphics.hpp>
 
 namespace Fases
 {
-class Fase
+class Fase : public Ente
 {
 protected:
+    Gerenciadores::Gerenciador_Colisoes GC;
     Listas::ListaEntidade* lista_ents;
-    Jogador* pJog1;
-    Inimigo* pInim1;
-    sf::RenderWindow* janela;
+    Personagens::Jogador* pJog1;
+    
 public:
-    Fase(Jogador* j1, sf::RenderWindow* j);
+    Fase(Personagens::Jogador* j1);
     ~Fase();
     void InicializaElementos();
     Listas::ListaEntidade* getListaEntidades() {return lista_ents;}
+    void criarInimigos();
+    void Executar();
 };
 }

@@ -1,14 +1,9 @@
 #include "Entidade.h"
 
-namespace Entidades
-{
-Entidade::Entidade()
-: janela(nullptr)
+Entidades::Entidade::Entidade()
 {
 }
 
-Entidade::~Entidade()
+Entidades::Entidade::~Entidade()
 {
-}
-
 }

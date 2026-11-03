@@ -1,10 +1,8 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "Gerenciador_Grafico.h"
 #include "Jogador.h"
-#include "Inimigo.h"
 #include "ListaEntidade.h"
 #include "Fase.h"
-#include "Gerenciador_Grafico.h"
 #include "Ente.h"
 
 class Jogo
@@ -12,8 +10,10 @@ class Jogo
 private:
     Gerenciador_Grafico* pGrafico;
 
-    Jogador* pJog1;
     Listas::ListaEntidade* LEs;
+
+    Personagens::Jogador* pJog1;
+
     Fases::Fase* fase1;
 public:
     Jogo();

@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-class Ente;
 #include "Figura.h"
+class Ente;
 
 class Gerenciador_Grafico
 {
