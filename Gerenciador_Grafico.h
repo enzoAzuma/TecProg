@@ -1,13 +1,16 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Figura.h"
+#include "iostream"
 class Ente;
 
+namespace Gerenciadores
+{
 class Gerenciador_Grafico
 {
 private:
     sf::RenderWindow* janela;
-    static Gerenciador_Grafico* pGrafico;
+    static Gerenciadores::Gerenciador_Grafico* pGrafico;
     Gerenciador_Grafico();
 
 public:
@@ -20,3 +23,4 @@ public:
     void mostraElementos() { janela->display(); }
     void desenharEnte(Ente* pE);
 };
+}

@@ -1,7 +1,7 @@
 #include "Ente.h"
 #include "Gerenciador_Grafico.h"
 
-Gerenciador_Grafico* Ente::pGG = nullptr;
+Gerenciadores::Gerenciador_Grafico* Ente::pGG = nullptr;
 
 Ente::Ente()
 : id(0), pFig(nullptr)
@@ -19,6 +19,5 @@ void Ente::Desenhar()
 
 void Ente::setFigura(Figura* f)
 {
-    delete pFig;
     pFig = f;
 }

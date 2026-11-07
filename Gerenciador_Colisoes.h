@@ -20,12 +20,12 @@ private:
 public:
     Gerenciador_Colisoes();
     ~Gerenciador_Colisoes();
-    bool verificarColisao(Entidades::Entidade* pe1, Entidades::Entidade* pe2) const;
+    const bool verificarColisao(Entidades::Entidade* pe1, Entidades::Entidade* pe2) const;
     void tratarColisoesJogsObstacs();
     void tratarColisoesJogsInimigs();
     void incluirInimigo(Personagens::Inimigo* pi) {if(pi) LIs.push_back(pi);}
     void incluirObstaculo(Obstaculos::Obstaculo* po) {if(po) LOs.push_back(po);}
     void incluirJogador(Personagens::Jogador* pj) {pJog1 = pj;}
-    void executar();
+    void Executar();
 };
 }

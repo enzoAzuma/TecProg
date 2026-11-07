@@ -12,7 +12,6 @@ Fase::Fase(Personagens::Jogador* j1)
 
     lista_ents = new Listas::ListaEntidade();
     InicializaElementos();
-    criarInimigos();
 }
 
 Fase::~Fase()
@@ -24,16 +23,15 @@ void Fase::InicializaElementos()
     lista_ents->getLEs()->incluir(pJog1);
 }
 
-void Fase::criarInimigos()
+void Fase::gravidade()
 {
-    Inim_Facil* pInim1 = new Inim_Facil();
-    lista_ents->getLEs()->incluir(pInim1);
-    GC.incluirInimigo(pInim1);
-}
 
-void Fase::Executar()
-{
-    GC.executar();
+    float t = c.restart().asSeconds();
+    float velY = pJog1->getVel().y;
+    
+    velY += g * t;
+    float novoY = pJog1->getFigura()->getPosicao().y +  velY;
 
+    pJog1->setPosicao(pJog1->getFigura()->getPosicao().x, novoY);
 }
 }

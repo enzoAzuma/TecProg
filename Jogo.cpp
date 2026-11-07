@@ -1,16 +1,16 @@
 #include "Jogo.h"
 
 Jogo::Jogo()
-: pGrafico(Gerenciador_Grafico::getGerenciadorGrafico())
+: pGrafico(Gerenciadores::Gerenciador_Grafico::getGerenciadorGrafico())
 {
     pJog1 = new Personagens::Jogador();
     pJog1->getFigura();
 
-    fase1 = new Fases::Fase(pJog1); // temporario
+    fase1 = new Fases::Fase_Primeira(pJog1);
 
-    LEs = fase1->getListaEntidades(); // temporario
+    LEs = fase1->getListaEntidades();
 
-    Ente::setGG(pGrafico); // seta o gerenciador grafico para todos
+    Ente::setGG(pGrafico); // seta o gerenciador grafico para todos entes
     Executar();
 }
 Jogo::~Jogo()
@@ -33,7 +33,7 @@ void Jogo::Executar()
         {
             Entidades::Entidade* e = aux->getInfo();
             e->Desenhar();
-        }
+        } // desenha as entidades da lista entidades
         fase1->Executar();
         pGrafico->mostraElementos();
     }

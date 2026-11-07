@@ -14,7 +14,6 @@ public:
     TL* getInfo(int pos);
     Elemento<TL>* getPrimeiro() {return pPrimeiro;}
     void incluir(TL* pinfo);
-    void remover(TL* pinfo);
     void Limpar();
 };
 
@@ -57,32 +56,6 @@ template<class TL> void Lista<TL>::incluir(TL* pinfo)
         pUltimo = aux;
     }  
 }
-
-/* template<class TL> void Lista<TL>::remover(TL* pinfo)
-{
-    Elemento<TL>* aux = pPrimeiro;
-    Elemento<TL>* auxAnte = nullptr;
-
-    while (aux->getItem != pinfo)
-    {
-        auxAnte = aux;
-        aux = aux->getPProx();
-    }
-    if(aux == pPrimeiro)
-    {
-        pPrimeiro = aux->getPProx();
-    }
-    else if(aux == pUltimo)
-    {
-        auxAnte->setPProx(nullptr);
-        pUltimo = auxAnte;
-    }
-    else
-    {
-        auxAnte->setPProx(aux->getPProx());
-    }
-    delete aux;
-} */
 
 template<class TL> void Lista<TL>::Limpar()
 {

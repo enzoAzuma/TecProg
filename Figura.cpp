@@ -1,6 +1,6 @@
 #include "Figura.h"
 
-Figura::Figura(float largura, float altura)
+Figura::Figura(int largura, int altura)
 : tamanho(largura, altura), forma(sf::Vector2f(tamanho.x, tamanho.y))
 {
     forma.setFillColor(sf::Color::White);
