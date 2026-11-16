@@ -3,7 +3,6 @@
 Personagens::Jogador::Jogador()
 : pontos(0)
 {
-    vel = sf::Vector2f(0.1f, 0.1f);
     setFigura(new Figura(50.f, 80.f));
     setPosicao(200.f, 0.f);
 }
@@ -12,7 +11,13 @@ Personagens::Jogador::~Jogador()
 {
 }
 
-void Personagens::Jogador::Mover()
+void Personagens::Jogador::executar()
+{
+    mover();
+    aplicarGravidade();
+}
+
+void Personagens::Jogador::mover()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) 
         x += vel.x;
@@ -26,12 +31,4 @@ void Personagens::Jogador::colidir(Inimigo* pIn)
 {
     num_vidas--;
     getFigura()->setCor(sf::Color::Magenta);
-}
-
-void Personagens::Jogador::setPosicao(float x, float y)
-{
-    this->x = x;
-    this->y = y;
-
-    getFigura()->setPosicao(x, y);
 }

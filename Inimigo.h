@@ -13,5 +13,6 @@ public:
     Inimigo();
     ~Inimigo();
     virtual void danificar(Personagens::Jogador* p) = 0;
+    virtual void executar() = 0;
 };
 }

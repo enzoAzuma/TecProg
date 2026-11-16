@@ -14,6 +14,6 @@ public:
     ~Fase_Primeira();
     void criarInimigos() override;
     void criarPlataformas();
-    void Executar() override;
+    void executar() override;
 };
 }

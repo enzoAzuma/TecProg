@@ -11,4 +11,6 @@ public:
     Inim_Facil();
     ~Inim_Facil();
     void danificar(Personagens::Jogador* p) override;
+    void mover() override;
+    void executar() override;
 };

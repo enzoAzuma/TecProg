@@ -16,7 +16,6 @@ protected:
     Gerenciadores::Gerenciador_Colisoes GC;
     Listas::ListaEntidade* lista_ents;
     Personagens::Jogador* pJog1;
-    float g = 500;
     sf::Clock c;
 public:
     Fase(Personagens::Jogador* j1);
@@ -24,7 +23,7 @@ public:
     void InicializaElementos();
     Listas::ListaEntidade* getListaEntidades() {return lista_ents;}
     virtual void criarInimigos() = 0;
-    virtual void Executar() = 0;
+    virtual void executar() = 0;
     void gravidade();
 };
 }

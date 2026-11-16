@@ -25,8 +25,9 @@ void Fases::Fase_Primeira::criarPlataformas()
     GC.incluirObstaculo(pPlat1);
 }
 
-void Fases::Fase_Primeira::Executar()
+void Fases::Fase_Primeira::executar()
 {
-    gravidade();
+    float dt = c.restart().asSeconds();
+    if (dt > 0.05f) dt = 0.05f;
     GC.Executar();
 }

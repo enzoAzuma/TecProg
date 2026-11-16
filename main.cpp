@@ -2,5 +2,7 @@
 
 int main() 
 {
-    Jogo jogo;    
+    Jogo jogo;   
+    jogo.Executar();
+    return 0;
 }

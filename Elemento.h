@@ -23,6 +23,5 @@ template<class TE> inline Elemento<TE>::Elemento()
 
 template<class TE> inline Elemento<TE>::~Elemento()
 {
-    delete pInfo;
 }
 }

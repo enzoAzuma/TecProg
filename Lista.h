@@ -24,6 +24,7 @@ template <class TL> inline Lista<TL>::Lista()
 
 template <class TL> inline Lista<TL>::~Lista()
 {
+    Limpar();
 }
 
 template<class TL> TL* Lista<TL>::getInfo(int pos)
@@ -31,10 +32,10 @@ template<class TL> TL* Lista<TL>::getInfo(int pos)
      if (pos < 0)
         return nullptr;
     int i = 0;
-    for (Elemento<TL>* aux = pPrimeiro; aux != nullptr; aux = aux->getPProx())
+    for (Elemento<TL>* aux = pPrimeiro; aux != nullptr; aux = aux->getProx())
     {
         if (i == pos)
-            return aux->getItem();   
+            return aux->getInfo();   
         i++;
     }
     return nullptr;

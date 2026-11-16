@@ -13,3 +13,13 @@ void Inim_Facil::danificar(Personagens::Jogador* p)
 {
     p->perdeVida(dano);
 }
+
+void Inim_Facil::mover()
+{
+
+}
+
+void Inim_Facil::executar()
+{
+    aplicarGravidade();
+}

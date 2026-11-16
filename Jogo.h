@@ -3,12 +3,15 @@
 #include "Jogador.h"
 #include "ListaEntidade.h"
 #include "Fase_Primeira.h"
-#include "Ente.h"
+#include "Personagem.h"
+#include "Gerenciador_Tempo.h"
 
 class Jogo
 {
 private:
     Gerenciadores::Gerenciador_Grafico* pGrafico;
+    
+    Gerenciadores::Gerenciador_Tempo* pGT;
 
     Listas::ListaEntidade* LEs;
 

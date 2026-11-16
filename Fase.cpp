@@ -22,16 +22,4 @@ void Fase::InicializaElementos()
 {
     lista_ents->getLEs()->incluir(pJog1);
 }
-
-void Fase::gravidade()
-{
-
-    float t = c.restart().asSeconds();
-    float velY = pJog1->getVel().y;
-    
-    velY += g * t;
-    float novoY = pJog1->getFigura()->getPosicao().y +  velY;
-
-    pJog1->setPosicao(pJog1->getFigura()->getPosicao().x, novoY);
-}
 }
